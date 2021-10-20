@@ -22,7 +22,7 @@ class Messages extends Model
                      AS Quantidade_Total_DIA, d.qtde_dia_inbound AS Quantidade_Total_inbound 
                      FROM dia d 
                      WHERE STR_TO_DATE(d.data_envio, '%Y-%m-%d') 
-                     BETWEEN STR_TO_DATE(:dateini, '%Y-%m-%d') AND STR_TO_DATE(:datefim, '%Y-%m-%d')";
+                     BETWEEN STR_TO_DATE(:dateini, '%Y-%m-%d') AND STR_TO_DATE(:datefim, '%Y-%m-%d') ORDER BY d.data_envio DESC";
                     $response = $sql->select($query, [
                         ":dateini" =>$dateIni,
                         ":datefim" =>$dateFim
