@@ -10,30 +10,23 @@ class Messages extends Model
 
         $sql = new Sql();
 
-                $horaIni = $this->getHoraIni();
-                $horaFim = $this->getHoraFim();
                 $dateIni = $this->getDataIni();
                 $dateFim = $this->getDataFim();
 
+        
 
-
-                if(empty($horaIni) == false && empty($horaFim) == false && empty($dateIni) == false && empty($dateFim) == false)
+                if(empty($dateIni) == false && empty($dateFim) == false)
                 {
                     //$query = "SELECT COUNT(m.body) as Quantidade_H FROM dia d JOIN msgs m ON m.fk_dia_msg = d.id WHERE m.horario BETWEEN '".$horaIni."' AND '".$horaFim."' AND STR_TO_DATE(d.data_envio, '%Y-%m-%d') = ".$dateIni."";
-                    $query = "SELECT d.data_envio/* , m.horario,COUNT(m.body) AS Quantidade_Hora  */,
-                     d.qtde_dia AS Template_DIA, d.qtde_dia_outbound AS Quantidade_Total_DIA, d.qtde_dia_inbound AS Quantidade_Total_inbound
-                     FROM dia d JOIN msgs m ON m.fk_dia_msg = d.id 
-                     WHERE m.horario 
-                     BETWEEN :horaini AND :horafim 
-                     AND STR_TO_DATE(d.data_envio, '%Y-%m-%d') BETWEEN STR_TO_DATE(:dateini, '%Y-%m-%d') 
-                     AND STR_TO_DATE(:datefim, '%Y-%m-%d')";
+                    $query = "SELECT d.data_envio, d.qtde_dia AS Template_DIA, d.qtde_dia_outbound
+                     AS Quantidade_Total_DIA, d.qtde_dia_inbound AS Quantidade_Total_inbound 
+                     FROM dia d 
+                     WHERE STR_TO_DATE(d.data_envio, '%Y-%m-%d') 
+                     BETWEEN STR_TO_DATE(:dateini, '%Y-%m-%d') AND STR_TO_DATE(:datefim, '%Y-%m-%d')";
                     $response = $sql->select($query, [
-                        ":horaini" =>$horaIni,
-                        ":horafim" =>$horaFim,
                         ":dateini" =>$dateIni,
                         ":datefim" =>$dateFim
                     ]);
-
                    return json_encode($response);
                 }
     }

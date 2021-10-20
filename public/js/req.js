@@ -3,8 +3,7 @@ $(".pesquisar").one("click", function (e) {
 
     let dataini = $("input[name='data_ini']").val();
     let datafim = $("input[name='data_fim']").val();
-    let horaini = $("input[name='hora_ini']").val();
-    let horafim = $("input[name='hora_fim']").val();
+
     
   $.ajax({
         method: "GET",
@@ -12,15 +11,29 @@ $(".pesquisar").one("click", function (e) {
         contentType: "application/json",
         data:{
             "data_ini": dataini,
-            "hora_ini": horaini,
             "data_fim": datafim,
-            "hora_fim": horafim
         },
         dataType: "json",
        success: function(data)
         {
-            let teste = JSON.parse(data);
-             console.log(teste);
+            //let teste = JSON.parse(data);
+             data.forEach(function(value, index)
+             {
+                 $("#corpo").prepend( make_Lines(value))
+             })
         }
      })
 })
+
+function make_Lines(data)
+{
+    let lines = `
+     <tr>
+        <td>${data.data_envio}</td>
+        <td>${data.Template_DIA}</td>
+        <td>${data.Quantidade_Total_DIA}</td>
+        <td>${data.Quantidade_Total_inbound}</td>
+     </tr>
+    `
+    return lines;
+}

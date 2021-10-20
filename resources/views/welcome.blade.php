@@ -16,12 +16,12 @@
         <div class="formulario-interno">
           <div class="col-4 ">
             <label for="validationCustom03" class="form-label" id="">Data Início* </label>
-            <input type="date" class="form-control col-12" name="data_ini" id="date_ini" placeholder="Search"
+            <input value="2021-08-01" type="date" class="form-control col-12" name="data_ini" id="date_ini" placeholder="Search"
               aria-label="Search" aria-describedby="inputGroupPrepend" required>
           </div>
           <div class=" " id="hora_ini">
             <label for="validationCustom03" class="form-label">Hora Início* </label>
-            <input type="time" class="form-control mr-sm-2" name="hora_ini" id="hora_ini" placeholder="Search"
+            <input value="10:30" type="time" class="form-control mr-sm-2" name="hora_ini" id="hora_ini" placeholder="Search"
               aria-label="Search" aria-describedby="inputGroupPrepend" required>
             <div class="alert1">
             </div>
@@ -29,12 +29,12 @@
           </div>
           <div class="col-4">
             <label for="validationCustom03" class="form-label" id="">Data Fim* </label>
-            <input type="date" class="form-control col-12" name="data_fim" id="date_fim" placeholder="Search"
+            <input value="2021-08-30" type="date" class="form-control col-12" name="data_fim" id="date_fim" placeholder="Search"
               aria-label="Search" aria-describedby="inputGroupPrepend" required>
           </div>
           <div class="col-md-2-p2">
             <label for="validationCustom03" class="form-label" id="hora_fim">Hora Fim* </label>
-            <input type="time" class="form-control " name="hora_fim" id="hora_fim" placeholder="Search"
+            <input value="13:30" type="time" class="form-control " name="hora_fim" id="hora_fim" placeholder="Search"
               aria-label="Search" aria-describedby="inputGroupPrepend" required>
           </div>
   
@@ -45,21 +45,21 @@
       </form>
   
     </div>
+    <div class="cabecalho">
+      
+    </div>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
       <table class="table table-bordered table-dark table-striped table-sm">
-        <thead class="">
+        <thead class="thead-fixed">
           <tr>
             <th scope="">DATA</th>
-            <th scope="">QNTE TEMPLATE</th>
-            <th scope="">QNTE TOTAL</th>
+            <th scope="">QTDE TEMPLATE</th>
+            <th scope="">QTDE Outbound</th>
+            <th scope="">QTDE Inbound</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{$value1.data}</td>
-            <td>{$value1.templete}</td>
-            <td>{$value1.outbond}</td>
-          </tr>
+        <tbody id="corpo">
+          
         </tbody>
       </table>
     </div>
