@@ -14,43 +14,29 @@ class Messages extends Model
                 $horaFim = $this->getHoraFim();
                 $dateIni = $this->getDataIni();
                 $dateFim = $this->getDataFim();
-                $dias = $this->getDias();
 
-                echo $dateFim . "<br>" . $dateIni ."<br>";
 
-                
-                if(empty($horaIni) == false && empty($horaFim) == false)
+
+                if(empty($horaIni) == false && empty($horaFim) == false && empty($dateIni) == false && empty($dateFim) == false)
                 {
                     //$query = "SELECT COUNT(m.body) as Quantidade_H FROM dia d JOIN msgs m ON m.fk_dia_msg = d.id WHERE m.horario BETWEEN '".$horaIni."' AND '".$horaFim."' AND STR_TO_DATE(d.data_envio, '%Y-%m-%d') = ".$dateIni."";
-                    $query = "SELECT m.sid, d.data_envio/* , m.horario,COUNT(m.body) AS Quantidade_Hora  */,
-                     d.qtde_dia AS Template_DIA, d.qtde_dia_outbound AS Quantidade_Total_DIA
+                    $query = "SELECT d.data_envio/* , m.horario,COUNT(m.body) AS Quantidade_Hora  */,
+                     d.qtde_dia AS Template_DIA, d.qtde_dia_outbound AS Quantidade_Total_DIA, d.qtde_dia_inbound AS Quantidade_Total_inbound
                      FROM dia d JOIN msgs m ON m.fk_dia_msg = d.id 
                      WHERE m.horario 
                      BETWEEN :horaini AND :horafim 
-                     AND STR_TO_DATE(d.data_envio, '%Y-%m-%d') = :dateini";
+                     AND STR_TO_DATE(d.data_envio, '%Y-%m-%d') BETWEEN STR_TO_DATE(:dateini, '%Y-%m-%d') 
+                     AND STR_TO_DATE(:datefim, '%Y-%m-%d')";
                     $response = $sql->select($query, [
                         ":horaini" =>$horaIni,
                         ":horafim" =>$horaFim,
-                        ":dateini" =>$dateIni
+                        ":dateini" =>$dateIni,
+                        ":datefim" =>$dateFim
                     ]);
-                   echo json_encode($response);
-                    } else if(empty($dateIni) == false && empty($dateFim) == false)
-                        {
-                            $query = "SELECT d.data_envio AS Data_ENVIO, d.qtde_dia 
-                            AS Templates_DIA, d.qtde_dia_outbound AS Quantidade_Total_DIA 
-                            FROM dia d 
-                            WHERE STR_TO_DATE(d.data_envio, '%Y-%m-%d') 
-                            BETWEEN STR_TO_DATE(:dateini, '%Y-%m-%d') 
-                            AND STR_TO_DATE(:datefim, '%Y-%m-%d') 
-                            ORDER BY `data_envio` ASC";
-                            $response = $sql->select($query, [
-                                ":dateini" =>$dateIni,
-                                ":datefim" =>$dateFim
-                            ]);
-                            echo json_encode($response);
-                        }    
-}
 
+                   return json_encode($response);
+                }
+    }
     public function __construct($data_hj)
     {
         $this->set_Data_Atual($data_hj);

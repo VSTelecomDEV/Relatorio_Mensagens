@@ -15,3 +15,5 @@ use App\Http\Controllers\Get_Msgs;
 */
 
 Route::get("/get_xls", [Get_Msgs::class, "export_Xls"])->name("api.relatorio");
+
+Route::get("/get_msg", [Get_Msgs::class, "contagem_Msg"])->name("api.contmsg");

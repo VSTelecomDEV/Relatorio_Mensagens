@@ -12,7 +12,7 @@
 <body>
 <div class="container_principal">
     <div class="header_twilio">
-      <form class="form" action="">
+      <form class="form" action="" method="GET">
         <div class="formulario-interno">
           <div class="col-4 ">
             <label for="validationCustom03" class="form-label" id="">Data Início* </label>
@@ -40,7 +40,7 @@
   
         </div>
         <div class="container-button">
-          <button type="" class=" pesquisar btn btn-secondary ">Pequisar</button>
+        <button type="" name="pesquisar" id="pesquisar" class=" pesquisar btn btn-secondary ">Pesquisar</button>
         </div>
       </form>
   
@@ -49,23 +49,17 @@
       <table class="table table-bordered table-dark table-striped table-sm">
         <thead class="">
           <tr>
-            <th scope="">SID</th>
             <th scope="">DATA</th>
-            <th scope="">HORA</th>
             <th scope="">QNTE TEMPLATE</th>
             <th scope="">QNTE TOTAL</th>
           </tr>
         </thead>
         <tbody>
-          {loop="$msgs"}
           <tr>
-            <td>{$value1.sid}</td>
             <td>{$value1.data}</td>
-            <td>{$value1.hora}</td>
-            <td>{$value1.hora}</td>
-            <td>{$value1.hora}</td>
+            <td>{$value1.templete}</td>
+            <td>{$value1.outbond}</td>
           </tr>
-          {/loop}
         </tbody>
       </table>
     </div>

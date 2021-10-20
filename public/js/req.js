@@ -1,24 +1,26 @@
+$(".pesquisar").one("click", function (e) {
+        e.preventDefault();
 
-// $("#exportar").on("click", function(e)
-// {
-
+    let dataini = $("input[name='data_ini']").val();
+    let datafim = $("input[name='data_fim']").val();
+    let horaini = $("input[name='hora_ini']").val();
+    let horafim = $("input[name='hora_fim']").val();
     
-//     let data1 = $("input[name='data_ini2']").val();
-//     let data2 = $("input[name='data_fim2']").val();
-//     let form = $("#form2");
-//     $.ajax({
-//         method: "GET",
-//         url: `http://127.0.0.1:8000/api/get_xls`,
-//         contentType: "application/json",
-//         data:{
-//             "data_ini": data1,
-//             "data_fim": data2
-//         },
-//         dataType: "json",
-//         success: function(data)
-//         {
-            
-//             console.log(data);
-//         }
-//     })
-// })
+  $.ajax({
+        method: "GET",
+        url: `http://127.0.0.1:8000/api/get_msg`,
+        contentType: "application/json",
+        data:{
+            "data_ini": dataini,
+            "hora_ini": horaini,
+            "data_fim": datafim,
+            "hora_fim": horafim
+        },
+        dataType: "json",
+       success: function(data)
+        {
+            let teste = JSON.parse(data);
+             console.log(teste);
+        }
+     })
+})
