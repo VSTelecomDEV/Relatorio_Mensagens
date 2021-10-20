@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset("css/bootstrap/dist/css/bootstrap.min.css")}}">
-    <link rel="stylesheet" href="{{asset("css/estilo.css")}}">
-    <link rel="stylesheet" href="{{asset("css/font-awesome/css/font-awesome.min.css")}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/estilo.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome/css/font-awesome.min.css')}}">
     <title>Document</title>
 </head>
 <body>
@@ -45,21 +45,19 @@
       </form>
   
     </div>
-    <div class="cabecalho">
-      
-    </div>
+    <br>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
       <table class="table table-bordered table-dark table-striped table-sm">
-        <thead class="thead-fixed">
+        <thead class="thead-fixed" >
           <tr>
             <th scope="">DATA</th>
-            <th scope="">QTDE TEMPLATE</th>
+            <th scope="">QTDE Template</th>
             <th scope="">QTDE Outbound</th>
             <th scope="">QTDE Inbound</th>
           </tr>
         </thead>
         <tbody id="corpo">
-          
+
         </tbody>
       </table>
     </div>
@@ -109,19 +107,20 @@
               <div class="container-button">
                 <a  href="#" onClick="document.getElementById('form2').submit();" class=" btn btn-secondary " id="exportar">Exportar XLS</a>
               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              </div>
             </form>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
-  <script src="{{asset("js/jquery.js")}}"></script>
-  <script src="{{asset("js/req.js")}}"></script>
-  <script src="{{asset("js/modal.js")}}"></script> 
-  <script src="{{asset("js/script.js")}}"></script> 
-  <script src="{{asset("css/bootstrap/dist/js/bootstrap.min.js")}}"></script> 
+  <script src="{{asset('js/jquery.js')}}"></script>
+  <script src="{{asset('js/req.js')}}"></script>
+  <script src="{{asset('js/modal.js')}}"></script> 
+  <script src="{{asset('js/script.js')}}"></script> 
+  <script src="{{asset('css/bootstrap/dist/js/bootstrap.min.js')}}"></script> 
   </body>
   </html>

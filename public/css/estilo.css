@@ -39,8 +39,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .table-wrapper-scroll-y {
@@ -94,7 +94,7 @@
 }
 
 .cont_twilio {
-    
+
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -104,9 +104,24 @@
     left: 0%;
     font-size: 14px;
 }
-.qnt_total{
+
+.qnt_total {
     border: 1px solid black;
 }
-.qnt_conf{
+
+.qnt_conf {
     border: 1px solid black;
 }
+
+
+.thead-fixed thead th {}
+
+.thead-fixed {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 70px;
+    background-color:#343a40;
+    border: 1px solid #343a40;
+}
+
