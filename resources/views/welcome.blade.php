@@ -101,8 +101,6 @@
                   <input type="date"  name="data_fim2" class="form-control col-12" id="date_fim" placeholder="Search" aria-label="Search"
                     aria-describedby="inputGroupPrepend">
                 </div>
-            
-  
               </div>
               <div class="container-button">
                 <a  href="#" onClick="document.getElementById('form2').submit();" class=" btn btn-secondary " id="exportar">Exportar XLS</a>
